@@ -1,0 +1,90 @@
+#Pernier Nasir
+#241607046
+#LAB11
+
+#Q1
+class Shape:
+    def _init_(self, sides):
+        self.sides = sides
+
+    def ComputeArea(self):
+        return 
+
+class Square(Shape):
+    def _init_(self, side_length):
+        super()._init_(4)
+        self.side_length = side_length
+
+    def ComputeArea(self):
+        return self.side_length * self.side_length
+    
+class Triangle(Shape):
+    def _init_(self,height,base):
+        super()._init_(3)
+        self.height = height
+        self.base = base
+
+    def ComputeArea(self):
+        area = 0.5 * self.base * self.height
+        return area
+    
+def main():
+    shape = []
+    choice = input("1: Square, 2: Triangle, 3: End")
+    if choice == '1':
+        side_length = float(input("Enter length: "))
+        shape.append(Square(side_length))
+
+    elif choice == '2':
+        base = float(input("Enter base: "))
+        height = float(input("Enter height: "))
+        shape.append(Triangle(height,base))
+
+    elif choice == '3':
+        num_sides = int(input("Enter number of sides"))
+        shape.append(Shape(num_sides))
+
+    else:
+        print("Please select from mentioned")
+
+    for obj in shape:
+        print(shape.ComputeArea())
+
+main()
+
+    
+##Q2
+
+class Employee:
+    def _init_(self, name, iD, salary):
+        self.name = name
+        self.ID = iD
+        self.salary = salary
+
+    def  SalaryStatus(self):
+        print(self.salary)
+
+class BuildingManager(Employee):
+    def _init_(self,name,iD):
+        super()._init_(name, iD, salary=10,000)
+        
+class ProcurementManager(Employee):
+    def _init_(self, name, iD):
+        super()._init_(name, iD, alary=12_000)
+
+class LogisticsManager(Employee):
+    def _init_(self,name, iD):
+        super()._init_(name, iD, salary=15_000)
+
+def main():
+    work = []
+    work.append(BuildingManager('sara',21))
+    work.append(Employee('lilic',421))
+    work.append(ProcurementManager('giovanni',9))
+    work.append(LogisticsManager('hypa',1339))
+
+    for obj in work:
+        obj.SalaryStatus()
+
+main()
+
